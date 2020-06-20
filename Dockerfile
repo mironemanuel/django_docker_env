@@ -5,10 +5,11 @@ ENV SITE_NAME="mysite"\
     DJANGO_SUPERUSER_PASSWORD="admin" \
     DJANGO_SUPERUSER_EMAIL="admin@example.com"
     
-RUN apt-get update \
-  && apt install -y git gcc make automake python3-pandas zlibc \
+RUN apt-get update 
+RUN apt-get install -y git gcc make automake python3-pandas zlib1g-dev libjpeg-dev \
   && mkdir -p /usr/src/app \
-  && rm -fr /var/lib/apt/lists/* 
+  && rm -fr /var/lib/apt/lists/* \
+  apt-get autoremove && apt clean
 
 ADD ./requirements.txt ./requirements.txt
 
