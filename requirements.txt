@@ -18,5 +18,4 @@ django-tex==1.1.7
 django-user-agents==0.4.0
 Pillow==7.1.2
 tablib[all]==1.1.0
-#numpy==1.18.5
 -e git+git://github.com/mzramna/django-bootstrap-select.git#egg=django-bootstrap-select
