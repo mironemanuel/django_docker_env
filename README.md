@@ -13,6 +13,8 @@ DJANGO_SUPERUSER_USERNAME="admin" #default <br>
 DJANGO_SUPERUSER_PASSWORD="admin" #default <br>
 DJANGO_SUPERUSER_EMAIL="admin@example.com"<br>
 
+o diretorio de execução da aplicação está localizado em /usr/src/app/$SITE_NAME,o que quer dizer que o diretorio depende da variavel SITE_NAME que se não for definida será "mysite" , isso deve ser levado em conta durante a criação do container caso queira que ele compartilhe seus dados com a maquina host
+
 ## Build
 
 ```
