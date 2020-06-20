@@ -16,11 +16,17 @@ DJANGO_SUPERUSER_EMAIL="admin@example.com"<br>
 ## Build
 
 ```
-$ docker build -t mysite . --build-arg DJANGO_SUPERUSER_USERNAME="user" --build-arg DJANGO_SUPERUSER_PASSWORD="password" --build-arg SITE_NAME="site_name" --build-arg DJANGO_SUPERUSER_EMAIL="admin@example.com"
+$ docker build -t site_name . --build-arg DJANGO_SUPERUSER_USERNAME="user" --build-arg DJANGO_SUPERUSER_PASSWORD="password" --build-arg SITE_NAME="site_name" --build-arg DJANGO_SUPERUSER_EMAIL="admin@example.com"
 ```
 
 ## Run
 
 ```
-$ docker run -d -p 8000:8000 mysite SITE_NAME="site_name" DJANGO_SUPERUSER_USERNAME="user" DJANGO_SUPERUSER_PASSWORD="password" DJANGO_SUPERUSER_EMAIL="admin@example.com" -v /my/app:/usr/src/app/site_name
+$ docker run -d -p 8000:8000 site_name SITE_NAME="site_name" DJANGO_SUPERUSER_USERNAME="user" DJANGO_SUPERUSER_PASSWORD="password" DJANGO_SUPERUSER_EMAIL="admin@example.com" -v /my/app:/usr/src/app/site_name
+```
+
+
+## Create
+```
+$ docker create --name site_name -p 8000:8000 SITE_NAME="site_name" DJANGO_SUPERUSER_USERNAME="user" DJANGO_SUPERUSER_PASSWORD="password" DJANGO_SUPERUSER_EMAIL="admin@example.com" -v /my/app:/usr/src/app/site_name
 ```
