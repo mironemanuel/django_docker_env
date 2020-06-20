@@ -1,4 +1,4 @@
-# docker-django-mysite
+# django_docker_env
 
 essa imagem vai criar um ambiente de desenvolvimento rapido para o django 3 com bootstrap 4
 
