@@ -15,22 +15,16 @@ ADD ./requirements.txt ./requirements.txt
 
 RUN pip install --no-cache-dir -r ./requirements.txt && \
     rm ./requirements.txt && \
-    cd /usr/src/app/ && \
-    django-admin startproject $SITE_NAME
+    cd /usr/src/app/
+    
+VOLUME /usr/src/app/
 
-VOLUME /usr/src/app/${SITE_NAME}/
+WORKDIR /usr/src/app/
 
-WORKDIR /usr/src/app/${SITE_NAME}/
+ADD ./entrypoint.sh ./
 
-RUN  python manage.py makemigrations && \
-     python manage.py migrate && \
-     python manage.py createsuperuser --no-input && \
-     python manage.py makemigrations && \
-     python manage.py migrate
-
+ADD ./recurent_entrypoint.sh ./
 
 EXPOSE 8000
 
-ENTRYPOINT ["python", "manage.py"]
-
-CMD ["runserver", "0.0.0.0:8000"]
+ENTRYPOINT "./entrypoint.sh"
